@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <link rel="stylesheet" href="css/bkr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Összehasonlító</title>
+</head>
+<body>
+    <div class="nav" id="myTopnav">
+        <div class="logo">
+            <img src="img/cctv-solid-24.png">
+        </div>
+
+        <div class="nav_elements">
+            <a class="active" href="osszehasonlito.html">Összehasonlító</a>
+            <a class="active" href="termekek.html">Termékek</a>
+            <a class="active" href="segito.html">Segítő</a>
+        </div>
+    </div>
+
+    <h1 class="text-center">Összehasonlítás</h1>
+    <div class="container">
+        <div class="col-md-9 mx-auto">
+            <table class="table">
+                <tr>
+                    <th>Termék kiválasztása</th>
+                    <th>
+                        <select class="form-controll" id="select1" onchange="item1(this.value)">
+                            <option value="0">Válassz terméket</option>
+                        </select>
+                    </th>
+                    <th>
+                        <select class="form-controll" id="select2" onchange="item2(this.value)">
+                            <option value="0">Válassz terméket</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Termék képe</th>
+                    <td>
+                        <img src="img/no img.png" id="img1">
+                    </td>
+                    <td>
+                        <img src="img/no img.png" id="img2">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Termék ára</th>
+                    <td id="price1">N/A</td>
+                    <td id="price2">N/A</td>
+                </tr>
+                <tr>
+                    <th>Leírás</th>
+                    <td id="des1">N/A</td>
+                    <td id="des2">N/A</td>
+                </tr>
+                <tr>
+                    <th>Márka</th>
+                    <td id="marka1">N/A</td>
+                    <td id="marka2">N/A</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js "></script>
+    <script src="JavaScript/data.js"></script>
+    <script>
+        for (var i = 1; i < product.length; i ++) {
+            document.getElementById ("select1").innerHTML += `
+            <option value="${i}">${product[i].title}</option>
+            `;
+            document.getElementById ("select2").innerHTML += `
+            <option value="${i}">${product[i].title}</option>
+            `;
+        }
+        function item1(a){
+            var select2 = document.getElementById ("select2").value;
+            if (a != select2)
+            {
+                document.getElementById("img1").src = product[a].image
+                document.getElementById("price1").innerHTML = " PKR " + product[a].price
+                document.getElementById("des1").innerHTML = product[a].des
+                document.getElementById("marka1").innerHTML = product[a].marka
+            }
+            else 
+            {
+                document.getElementById("select1").selectedIndex = 0;
+                document.getElementById("img1").src = product[0].image
+                document.getElementById("price1").innerHTML = ""
+                document.getElementById("des1").innerHTML = ""
+                document.getElementById("marka1").innerHTML = ""
+            }
+        }
+
+        function item2(a){
+            var select1 = document.getElementById ("select1").value;
+            if (a != select1)
+            {
+                document.getElementById("img2").src = product[a].image
+                document.getElementById("price2").innerHTML = " PKR " + product[a].price
+                document.getElementById("des2").innerHTML = product[a].des
+                document.getElementById("marka2").innerHTML = product[a].marka
+            }
+            else 
+            {
+                document.getElementById("select2").selectedIndex = 0;
+                document.getElementById("img2").src = product[0].image
+                document.getElementById("price2").innerHTML = ""
+                document.getElementById("des2").innerHTML = ""
+                document.getElementById("marka2").innerHTML = ""
+            }
+        }
+    </script>
+</body>
+</html>
