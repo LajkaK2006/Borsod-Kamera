@@ -4,27 +4,32 @@
     <link rel="stylesheet" href="css/bkr.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Összehasonlító</title>
 </head>
 <body>
-    <div class="nav" id="myTopnav">
-        <div class="logo">
-            <img src="img/cctv-solid-24.png">
+    <header>
+        <a href="" class="logo"> <img src="img/cctv-solid-24.png">Borsod Kamera</a>
+        <ul class="nav-list">
+            <li><a href="bkr.html">Főoldal</a></li>
+            <li><a href="termekek.html">Termékek</a></li>
+            <li><a href="osszehasonlito.html" class="active">Összehasonlító</a></li>
+            <li><a href="segito.html">Segítő</a></li>
+            <li><a href="rolunk.html">Rólunk</a></li>
+        </ul>
+        <div class="login">
+            <a href="" class="btn">Bejelentkezés</a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <div class="bx bx-moon" id="darkmode"></div>
         </div>
-
-        <div class="nav_elements">
-            <a class="active" href="osszehasonlito.html">Összehasonlító</a>
-            <a class="active" href="termekek.html">Termékek</a>
-            <a class="active" href="segito.html">Segítő</a>
-        </div>
-    </div>
-
-    <h1 class="text-center">Összehasonlítás</h1>
+    </header>
+    <section class="box">
+   
     <div class="container">
-        <div class="col-md-9 mx-auto">
+        <div class="col-md-9 col-auto">
             <table class="table">
                 <tr>
                     <th>Termék kiválasztása</th>
@@ -66,10 +71,11 @@
             </table>
         </div>
     </div>
-
+    </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js "></script>
     <script src="JavaScript/data.js"></script>
+    <script src="JavaScript/darkmode.js"></script>
     <script>
         for (var i = 1; i < product.length; i ++) {
             document.getElementById ("select1").innerHTML += `
